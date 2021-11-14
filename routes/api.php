@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AppointmentController;
+use App\Http\Controllers\Api\Authcontroller;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\ProductController;
 use Illuminate\Http\Request;
@@ -22,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::resource('doctor', DoctorController::class);
+Route::resource('user', Authcontroller::class);
+Route::post("login", [Authcontroller::class, 'login']);
 Route::post("updatedoctor/{id}", [DoctorController::class, 'updateDoctor']);
 Route::resource('appointment', AppointmentController::class);
 Route::get("approve/{id}", [AppointmentController::class, 'approve']);
